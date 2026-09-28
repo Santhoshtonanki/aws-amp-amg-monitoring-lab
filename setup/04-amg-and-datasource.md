@@ -10,6 +10,7 @@ Console > Amazon Managed Grafana > Create workspace
 - Authentication: **AWS IAM Identity Center**
 - Permission type: **Service managed**
 - Outbound VPC connection: skip
+    ## if you provide VPC, you need to give subnet information. based on this internet access will be manageable
 - Network access: Open access; IP type: IPv4 only
 - Encryption: default (AWS managed key)
 - Account access: **Current account**
@@ -19,9 +20,9 @@ Console > Amazon Managed Grafana > Create workspace
 Wait about 5 minutes for **Active**.
 
 ## C. Assign the user and make Admin
-Workspace > Authentication tab > Configure users and user groups > Assign new user (or group) > select user > **Make admin**.
+Workspace > Authentication tab > Configure users and user groups > Assign new user (or group) > select user > **Make it as admin**.
 
-Skipping this still lets you log in, but with Viewer role you cannot add data sources.
+Skipping this still lets you log in, but with Viewer role you cannot access to add data sources.
 
 ## D. Log in
 Open the workspace URL and sign in with Identity Center.
