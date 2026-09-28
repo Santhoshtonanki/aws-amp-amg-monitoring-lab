@@ -22,11 +22,12 @@ Pick the latest version from the node_exporter releases page (use `arm64` on ARM
 
 ```bash
 NE_VER=<latest-version>
-cd /tmp
-wget https://github.com/prometheus/node_exporter/releases/download/v${NE_VER}/node_exporter-${NE_VER}.linux-amd64.tar.gz
-tar xzf node_exporter-${NE_VER}.linux-amd64.tar.gz
-sudo cp node_exporter-${NE_VER}.linux-amd64/node_exporter /usr/local/bin/
-sudo useradd --no-create-home --shell /bin/false node_exporter
+cd /
+wget <applicaiton download link address>
+tar -xf <applicaiton file name>
+ln -s <applicaiton file name> <shortcut name> ## this step will help to make short cut name rather than current file name
+cd <shortcut name>  ## there you will find node_exporter files
+sudo useradd --no-create-home --shell /bin/false node_exporter ## create user according what you mentioned in "node_exporter.service" file
 sudo cp ~/node_exporter.service /etc/systemd/system/node_exporter.service   # from configs/
 sudo systemctl daemon-reload
 sudo systemctl enable --now node_exporter
