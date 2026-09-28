@@ -1,0 +1,15 @@
+[Unit]
+Description=Prometheus Agent
+After=network.target
+
+[Service]
+User=prometheus
+ExecStart=/usr/local/bin/prometheus \
+  --config.file=/etc/prometheus/prometheus.yml \
+  --agent \
+  --storage.agent.path=/var/lib/prometheus/agent \
+  --web.listen-address=127.0.0.1:9090
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

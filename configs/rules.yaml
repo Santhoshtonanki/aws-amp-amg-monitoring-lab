@@ -1,0 +1,20 @@
+groups:
+  - name: ec2-infra
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "{{ $labels.instance }} is down"
+      - alert: HighCPU
+        expr: 100 - (avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 85
+        for: 5m
+        labels:
+          severity: warning
+      - alert: LowDisk
+        expr: node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"} * 100 < 15
+        for: 5m
+        labels:
+          severity: warning

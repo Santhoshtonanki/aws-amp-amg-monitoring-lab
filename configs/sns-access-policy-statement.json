@@ -1,0 +1,11 @@
+{
+  "Sid": "AllowAMPPublish",
+  "Effect": "Allow",
+  "Principal": { "Service": "aps.amazonaws.com" },
+  "Action": ["sns:Publish", "sns:GetTopicAttributes"],
+  "Resource": "<SNS_TOPIC_ARN>",
+  "Condition": {
+    "StringEquals": { "AWS:SourceAccount": "<ACCOUNT_ID>" },
+    "ArnEquals": { "AWS:SourceArn": "<AMP_WORKSPACE_ARN>" }
+  }
+}

@@ -1,0 +1,13 @@
+alertmanager_config: |
+  route:
+    receiver: sns-default
+    group_by: [alertname, instance]
+    group_wait: 30s
+    repeat_interval: 4h
+  receivers:
+    - name: sns-default
+      sns_configs:
+        - topic_arn: arn:aws:sns:ap-south-1:<ACCOUNT_ID>:amp-alerts
+          sigv4:
+            region: ap-south-1
+          subject: "AMP Alert"
