@@ -26,7 +26,8 @@ IAM > Roles > Create role
 Creating the role in the console also creates the instance profile automatically.
 
 ### Inline policy for EC2 discovery
-Role > Add permissions > Create inline policy > JSON, name `EC2Describe`:
+Role > Add permissions > Create inline policy > JSON, name `EC2Describe`: or 
+Role > Add permissions > Create inline policy > visual > select service > ec2 > list > describeinhtances
 see [`configs/iam-ec2-describe-policy.json`](../configs/iam-ec2-describe-policy.json).
 
 ### Attach to the collector
