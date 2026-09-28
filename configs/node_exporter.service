@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=node_exporter
-ExecStart=/usr/local/bin/node_exporter
+ExecStart=/opt/node_exporter/node_exporter
 Restart=always
 
 [Install]
